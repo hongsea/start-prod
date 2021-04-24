@@ -140,13 +140,13 @@ elif [[ -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} ]];then
 
 elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
-    ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH} ${STATUS}
+    sudo ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH} ${STATUS}
 
 elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_BACKGROUND} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
-    ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
+    sudo ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
 
-    if [[ ${STATUS_DOCKER} != "down" ]];then
+    if [[ "${STATUS_DOCKER}" != "down" ]];then
         sleep 15
         CONTAINER_NAME=$(docker ps -a --filter "name=${DOCKER_CONTAINER_NAME}" --format "{{.Names}}")    
         if [[ ${CONTAINER_NAME} == ${DOCKER_CONTAINER_NAME} ]];then
@@ -165,17 +165,17 @@ elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_P
 
 elif [[ -z ${DOCKER_VOLUME} && -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
-    docker-compose -f ${DOCKER_COMPOSE_PATH} ${STATUS}
+    sudo docker-compose -f ${DOCKER_COMPOSE_PATH} ${STATUS}
 
 elif [[ -z ${DOCKER_VOLUME} && -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_BACKGROUND} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
-    docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
+    sudo docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
 
     if [[ ${STATUS_DOCKER} != "down" ]];then
         sleep 15
         CONTAINER_NAME=$(docker ps -a --filter "name=${DOCKER_CONTAINER_NAME}" --format "{{.Names}}")    
         if [[ ${CONTAINER_NAME} == ${DOCKER_CONTAINER_NAME} ]];then
-            DOCKER_STATE=$(docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.State}}")
+            DOCKER_STATE=$(docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.State}}") 
             if [[ ${DOCKER_STATE} == "running" ]];then
                 echo "Your container executed successfully."
             elif [[ ${DOCKER_STATE} == "restarting" || ${DOCKER_STATE} == "exited" ]];then
