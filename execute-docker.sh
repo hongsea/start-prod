@@ -10,7 +10,7 @@ NC='\033[0m'
 check_root(){
     if [[ $(id -u) != 0 ]]; then
         echo -e "${RED}This script run as root.${NC}"
-        exit;
+        exit 1;
     fi
 }
 check_root
