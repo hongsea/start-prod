@@ -111,7 +111,6 @@ done
 
 if [[ -z ${DOCKER_COMPOSE_PATH} && -z ${DOCKER_COMPOSE_PATH_BACKGROUND} && -z ${STATUS} ]];then
     Help
-    echo "1"
 
 elif [[ -z ${DOCKER_COMPOSE_PATH} && -z ${DOCKER_COMPOSE_PATH_BACKGROUND}  ]];then
     echo -e "${RED}Program required docker compose file path..!${NC}"
