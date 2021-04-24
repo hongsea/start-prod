@@ -116,28 +116,28 @@ if [[ -z ${DOCKER_COMPOSE_PATH} && -z ${DOCKER_COMPOSE_PATH_BACKGROUND} && -z ${
 elif [[ -z ${DOCKER_COMPOSE_PATH} && -z ${DOCKER_COMPOSE_PATH_BACKGROUND}  ]];then
     echo -e "${RED}Program required docker compose file path..!${NC}"
     Help
-    exit 1
+    exit 1;
 
 
 elif [[ -z ${STATUS} ]];then
     echo -e "${RED}Program required status docker compose [start/stop/restart/down]..!${NC}"
     Help
-    exit 1    
+    exit 1;    
 
 elif [[ -z ${DOCKER_CONTAINER_NAME} ]];then
     echo -e "${RED}Program required docker container name..!${NC}"
     Help
-    exit 1       
+    exit 1;       
 
 elif [[ ! -z $DOCKER_VOLUME && -z $PROJECT_PATH ]];then 
     echo -e "${RED}Program required directory project path..!${NC}"
     Help
-    exit 1
+    exit 1;
 
 elif [[ -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} ]];then 
     echo -e "${RED}Program required variable in docker compose file volume..!${NC}"
     Help
-    exit 1    
+    exit 1;    
 
 elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
@@ -155,7 +155,11 @@ elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_P
             echo "Your container executed successfully."
         elif [[ ${DOCKER_STATE} == "restarting" || ${DOCKER_STATE} == "exited" ]];then
             echo "Your container executed failed."
+            exit 1;
         fi
+    else
+        echo "please check docker container name again in docker compose file."
+        exit 1;        
     fi
 
 
@@ -175,9 +179,11 @@ elif [[ -z ${DOCKER_VOLUME} && -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_
             echo "Your container executed successfully."
         elif [[ ${DOCKER_STATE} == "restarting" || ${DOCKER_STATE} == "exited" ]];then
             echo "Your container executed failed."
+            exit 1;
         fi
     else
         echo "please check docker container name again in docker compose file."
+        exit 1;
     fi
 
 fi
