@@ -148,7 +148,7 @@ elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_P
 
     if [[ ${STATUS_DOCKER} != "down" ]];then
         sleep 15
-        CONTAINER_NAME=$(docker ps --filter "name=${DOCKER_CONTAINER_NAME}" --format "{{.Names}}")    
+        CONTAINER_NAME=$(docker ps -a --filter "name=${DOCKER_CONTAINER_NAME}" --format "{{.Names}}")    
         if [[ ${CONTAINER_NAME} == ${DOCKER_CONTAINER_NAME} ]];then
             DOCKER_STATE=$(docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.State}}")
             if [[ ${DOCKER_STATE} == "running" ]];then
@@ -173,7 +173,7 @@ elif [[ -z ${DOCKER_VOLUME} && -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_
 
     if [[ ${STATUS_DOCKER} != "down" ]];then
         sleep 15
-        CONTAINER_NAME=$(docker ps --filter "name=${DOCKER_CONTAINER_NAME}" --format "{{.Names}}")    
+        CONTAINER_NAME=$(docker ps -a --filter "name=${DOCKER_CONTAINER_NAME}" --format "{{.Names}}")    
         if [[ ${CONTAINER_NAME} == ${DOCKER_CONTAINER_NAME} ]];then
             DOCKER_STATE=$(docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.State}}")
             if [[ ${DOCKER_STATE} == "running" ]];then
