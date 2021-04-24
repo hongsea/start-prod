@@ -31,7 +31,7 @@ Help()
    echo "   -h     display this help and exit"
    echo
    echo "Examples:"
-   echo "   start-docker -d ./docker-compose.yml -p /home/project -e PROJECT_PATH -n webserver -s up"
+   echo "   execute-docker -d ./docker-compose.yml -p /home/project -e PROJECT_PATH -n webserver -s up"
 }
 
 Check(){
@@ -147,7 +147,7 @@ elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_P
     Check
     ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
 
-    sleep 10
+    sleep 15
     CONTAINER_NAME=$(docker ps --filter "name=${DOCKER_CONTAINER_NAME}" --format "{{.Names}}")    
     if [[ ${CONTAINER_NAME} == ${DOCKER_CONTAINER_NAME} ]];then
         DOCKER_STATE=$(docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.State}}")
@@ -171,7 +171,7 @@ elif [[ -z ${DOCKER_VOLUME} && -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_
     Check
     docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
 
-    sleep 10
+    sleep 15
     CONTAINER_NAME=$(docker ps --filter "name=${DOCKER_CONTAINER_NAME}" --format "{{.Names}}")    
     if [[ ${CONTAINER_NAME} == ${DOCKER_CONTAINER_NAME} ]];then
         DOCKER_STATE=$(docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.State}}")
