@@ -147,7 +147,7 @@ elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_P
     Check
     ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
 
-    sleep 5
+    sleep 10
     CONTAINER_NAME=$(docker ps --filter "name=${DOCKER_CONTAINER_NAME}" --format "{{.Names}}")    
     if [[ ${CONTAINER_NAME} == ${DOCKER_CONTAINER_NAME} ]];then
         DOCKER_STATE=$(docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.State}}")
@@ -171,7 +171,7 @@ elif [[ -z ${DOCKER_VOLUME} && -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_
     Check
     docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
 
-    sleep 5
+    sleep 10
     CONTAINER_NAME=$(docker ps --filter "name=${DOCKER_CONTAINER_NAME}" --format "{{.Names}}")    
     if [[ ${CONTAINER_NAME} == ${DOCKER_CONTAINER_NAME} ]];then
         DOCKER_STATE=$(docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.State}}")
