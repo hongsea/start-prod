@@ -181,11 +181,3 @@ elif [[ -z ${DOCKER_VOLUME} && -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_
     fi
 
 fi
-
-# sudo docker ps --filter "name=webserver" --format "{{.Names}}"
-# sudo docker ps --filter "name=webserver" --format "{{.Ports}}"
-# 0.0.0.0:81->80/tcp, :::81->80/tcp, 0.0.0.0:444->443/tcp, :::444->443/tcp
-# sudo docker ps --filter "name=webserver" --format "{{.State}}"
-# running
-# sudo docker ps --filter "name=webserver" --format "{{.Status}}"
-# Up 11 minutes
