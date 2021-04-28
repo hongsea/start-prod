@@ -53,16 +53,6 @@ services:
 ```
 Run docker compose execute:
 
--p    directory project path
-
--e    variable in docker compose
-
--d    docker compose file path with background running
-
--n    docker container name
-
--s    status docker compose [start/stop/restart/up/down]
-
 ```sh
 sudo execute-docker -p /var/path/dev -e DEV_PATH -d ./docker-compose.yml -n webserver -s up
 ```
