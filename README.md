@@ -32,7 +32,7 @@ execute-docker -d ./docker-compose.yml -p /home/project -e PROJECT_PATH -n webse
 
 ```
 
-***Note: This script work with only docker compose.***
+*Note: This script work with only docker compose.*
 
 #### Example
 
