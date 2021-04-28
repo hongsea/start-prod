@@ -2,13 +2,13 @@
 
 #### Download Docker execute
 
-```console
+```shell
 wget https://raw.githubusercontent.com/hongsea/start-prod/master/execute-docker.sh && sudo mv execute-docker.sh /usr/bin/execute-docker && sudo chmod +x /usr/bin/execute-docker
 ```
 
 #### Execute :
 
-```
+```shell
 root@computerIT$~ sudo execute-docker -h
 Usage: start-docker [OPTION]... [FILE]...
 
@@ -28,13 +28,13 @@ execute-docker -d ./docker-compose.yml -p /home/project -e PROJECT_PATH -n webse
 
 #### Download Pm2 execute
 
-```console
+```shell
 wget https://raw.githubusercontent.com/hongsea/start-prod/master/execute-pm2.sh && sudo mv execute-pm2.sh /usr/bin/execute-pm2 && sudo chmod +x /usr/bin/execute-pm2
 ```
 
 #### Execute :
 
-```
+```shell
 root@computerIT$~ execute-pm2 -h
 Usage: start-docker [OPTION]... [FILE]...
 
