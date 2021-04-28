@@ -1,4 +1,4 @@
-<h2 align="center">DOCKER / PM2</h1>
+<h2 align="center">DOCKER-COMPOSE / PM2</h1>
 
 #### Download Docker execute
 
@@ -31,6 +31,36 @@ Examples:
 execute-docker -d ./docker-compose.yml -p /home/project -e PROJECT_PATH -n webserver -s up
 
 ```
+
+***Note: This script work with only docker compose.***
+
+#### Example
+
+You have a docker-compose that you want to work with a variable path like this:
+
+```yml
+version: '3'
+services:
+    webserver:
+        image: nginx:alpine
+        container_name: webserver
+        restart: always
+        ports:
+            - "81:80"
+            - "444:443"
+        volumes:
+            - "${DEV_PATH}:/var/www/app/"  
+```
+Run docker compose execute:
+```sh
+sudo execute-docker -p /var/path/dev -e DEV_PATH -d ./docker-compose.yml -n webserver -s up
+```
+
+- -p    directory project path
+- -e    variable in docker compose
+- -d    docker compose file path with background running
+- -n    docker container name
+- -s    status docker compose [start/stop/restart/up/down]
 
 #### Download Pm2 execute
 

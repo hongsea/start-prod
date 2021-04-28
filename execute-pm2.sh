@@ -12,6 +12,7 @@ Help()
    echo
    echo "options:"
    echo "   -n     pm2 application-name."
+   echo "   -h     display this help and exit"   
    echo
    echo "Examples:"
    echo "   execute-pm2 -n application-name"
