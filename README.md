@@ -15,7 +15,7 @@ wget https://raw.githubusercontent.com/hongsea/start-prod/master/execute-docker.
 #### Execute :
 
 ```
-root@computerIT$~ sudo execute-docker -h
+$~ sudo execute-docker -h
 Usage: start-docker [OPTION]... [FILE]...
 
 options:
@@ -54,7 +54,7 @@ services:
 Run docker compose execute:
 
 ```sh
-sudo execute-docker -p /var/path/dev -e DEV_PATH -d ./docker-compose.yml -n webserver -s up
+$~ sudo execute-docker -p /var/path/dev -e DEV_PATH -d ./docker-compose.yml -n webserver -s up
 ```
 
 #### Download Pm2 execute
@@ -72,7 +72,7 @@ wget https://raw.githubusercontent.com/hongsea/start-prod/master/execute-pm2.sh 
 #### Execute :
 
 ```
-root@computerIT$~ execute-pm2 -h
+$~ execute-pm2 -h
 Usage: start-docker [OPTION]... [FILE]...
 
 options:
