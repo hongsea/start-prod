@@ -1,6 +1,6 @@
 <h2 align="center">DOCKER-COMPOSE / PM2</h1>
 
-If your run command `docker-comose up -d` or` docker-comose up` you will see any logs indicating that this container is running or failed by specify command `docker ps`. It's fine, but when we want to do an automatic deployment like Github Action to a server that just loads the container when changing the code. The status on githubaction will show you the status passing, but we are not sure this container status is running or restarting or failing. This is how I see the problem, so I created this script to check for more containers on the server when we start or restart it.
+If your run command `docker-comose up -d` or` docker-comose up` you will see any logs indicating that this container is running or failed by specify command `docker ps`. It's fine, but when we want to do an automatic deployment like Github Action to a server that just loads the container when changing the code. The status on Github Action will show you the status passing, but we are not sure this container status is running or restarting or failing. This is how I see the problem, so I created this script to check for more containers on the server when we start or restart it.
 
 You can run pm2 execute to make sure your application is online or stopped.
 
