@@ -8,7 +8,7 @@ wget https://raw.githubusercontent.com/hongsea/start-prod/master/execute-docker.
 
 ### Execute :
 
-```console
+```
 root@computerIT$~ sudo execute-docker -h
 Usage: start-docker [OPTION]... [FILE]...
 
@@ -34,7 +34,7 @@ wget https://raw.githubusercontent.com/hongsea/start-prod/master/execute-pm2.sh 
 
 ### Execute :
 
-```console
+```
 root@computerIT$~ execute-pm2 -h
 Usage: start-docker [OPTION]... [FILE]...
 
