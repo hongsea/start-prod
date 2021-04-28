@@ -86,3 +86,10 @@ options:
 Examples:
 execute-pm2 -n application-names
 ```
+
+#### Example :
+
+```sh
+$~ execute-pm2 -n app1
+Your app executed successfully.
+```
