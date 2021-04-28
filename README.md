@@ -2,9 +2,7 @@
 
 ## Docker
 
-```
-wget https://raw.githubusercontent.com/hongsea/start-prod/master/execute-docker.sh && sudo mv execute-docker.sh /usr/bin/execute-docker && sudo chmod +x /usr/bin/execute-docker
-```
+`wget https://raw.githubusercontent.com/hongsea/start-prod/master/execute-docker.sh && sudo mv execute-docker.sh /usr/bin/execute-docker && sudo chmod +x /usr/bin/execute-docker`
 
 ### Execute :
 
@@ -28,9 +26,8 @@ Examples:
 
 ## Pm2
 
-```
-wget https://raw.githubusercontent.com/hongsea/start-prod/master/execute-pm2.sh && sudo mv execute-pm2.sh /usr/bin/execute-pm2 && sudo chmod +x /usr/bin/execute-pm2
-```
+
+`wget https://raw.githubusercontent.com/hongsea/start-prod/master/execute-pm2.sh && sudo mv execute-pm2.sh /usr/bin/execute-pm2 && sudo chmod +x /usr/bin/execute-pm2`
 
 ### Execute :
 
