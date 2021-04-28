@@ -47,7 +47,7 @@ else
         if [[ ${ACTION} == "online" ]];then
             echo "Your app executed successfully."
         elif [[ ${ACTION} == "stopped" ]];then
-            echo "Your app executed failure."
+            echo "Your app executed stopped."
             exit 1;
         fi
     else 
