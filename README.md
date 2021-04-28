@@ -34,7 +34,7 @@ execute-docker -d ./docker-compose.yml -p /home/project -e PROJECT_PATH -n webse
 
 *Note: This script work with only docker compose.*
 
-#### Example
+#### Example :
 
 You have a docker-compose that you want to work with a variable path like this:
 
@@ -55,6 +55,7 @@ Run docker compose execute:
 
 ```sh
 $~ sudo execute-docker -p /var/path/dev -e DEV_PATH -d ./docker-compose.yml -n webserver -s up
+Your container executed successfully.
 ```
 
 #### Download Pm2 execute
