@@ -104,7 +104,7 @@ while getopts ":hp:he:hc:hd:hs:hn:" option; do
             ;;            
         \?) # incorrect option
             echo "start-docker.sh: Invalid option"
-            echo "Try 'start-docker.sh -h' for more information."
+            echo "Try 'start-docker -h' for more information."
             exit 1;;
    esac
 done
