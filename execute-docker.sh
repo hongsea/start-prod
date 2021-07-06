@@ -141,11 +141,11 @@ elif [[ -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} ]];then
 
 elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
-    ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH} ${STATUS}
+    sudo ${DOCKER_VOLUME}=${PROJECT_PATH} /usr/bin/docker-compose -f ${DOCKER_COMPOSE_PATH} ${STATUS} &>/dev/null
 
 elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_BACKGROUND} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
-    ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
+    sudo ${DOCKER_VOLUME}=${PROJECT_PATH} /usr/bin/docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
 
     if [[ "${STATUS_DOCKER}" != "down" ]];then
         sleep 15
