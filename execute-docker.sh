@@ -7,14 +7,14 @@
 RED='\033[0;31m'
 NC='\033[0m' 
 
-check_group(){
-    username=$(id -u -n)
-    if ! getent group docker | grep -q "\b${username}\b";then
-        echo -e "${RED}Please add user ${username} to docker group.${NC}"
-        exit 1;
-    fi
-}
-check_group
+# check_group(){
+#     username=$(id -u -n)
+#     if ! getent group docker | grep -q "\b${username}\b";then
+#         echo -e "${RED}Please add user ${username} to docker group.${NC}"
+#         exit 1;
+#     fi
+# }
+# check_group
 
 
 Help()
