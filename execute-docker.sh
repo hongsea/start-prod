@@ -141,11 +141,11 @@ elif [[ -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} ]];then
 
 elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
-    sudo ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH} ${STATUS}
+    ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH} ${STATUS}
 
 elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_BACKGROUND} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
-    sudo ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
+    ${DOCKER_VOLUME}=${PROJECT_PATH} docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
 
     if [[ "${STATUS_DOCKER}" != "down" ]];then
         sleep 15
@@ -166,11 +166,11 @@ elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_P
 
 elif [[ -z ${DOCKER_VOLUME} && -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
-    sudo docker-compose -f ${DOCKER_COMPOSE_PATH} ${STATUS}
+    docker-compose -f ${DOCKER_COMPOSE_PATH} ${STATUS}
 
 elif [[ -z ${DOCKER_VOLUME} && -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_BACKGROUND} && ! -z ${STATUS} && ! -z ${DOCKER_CONTAINER_NAME} ]];then
     Check
-    sudo docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
+    docker-compose -f ${DOCKER_COMPOSE_PATH_BACKGROUND} ${STATUS_DOCKER} &>/dev/null
 
     if [[ ${STATUS_DOCKER} != "down" ]];then
         sleep 15
