@@ -7,13 +7,14 @@
 RED='\033[0;31m'
 NC='\033[0m' 
 
-check_root(){
-    if [[ $(id -u) != 0 ]]; then
-        echo -e "${RED}This script run as root.${NC}"
+check_group(){
+    username=$(id -u -n)
+    if ! getent group docker | grep -q "\b${username}\b";then
+        echo -e "${RED}Please add user ${username} to docker group.${NC}"
         exit 1;
     fi
 }
-check_root
+check_group
 
 
 Help()
@@ -152,7 +153,7 @@ elif [[ ! -z ${DOCKER_VOLUME} && ! -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_P
         if [[ ${CONTAINER_NAME} == ${DOCKER_CONTAINER_NAME} ]];then
             DOCKER_STATE=$(docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.State}}")
             if [[ ${DOCKER_STATE} == "running" ]];then
-                echo "Your container executed successfully."
+                echo "Congrats!! Your container executed successfully."
             elif [[ ${DOCKER_STATE} == "restarting" || ${DOCKER_STATE} == "exited" ]];then
                 echo "Your container executed failed."
                 exit 1;
@@ -177,7 +178,7 @@ elif [[ -z ${DOCKER_VOLUME} && -z ${PROJECT_PATH} && ! -z ${DOCKER_COMPOSE_PATH_
         if [[ ${CONTAINER_NAME} == ${DOCKER_CONTAINER_NAME} ]];then
             DOCKER_STATE=$(docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.State}}") 
             if [[ ${DOCKER_STATE} == "running" ]];then
-                echo "Your container executed successfully."
+                echo "Congrats!! Your container executed successfully."
             elif [[ ${DOCKER_STATE} == "restarting" || ${DOCKER_STATE} == "exited" ]];then
                 echo "Your container executed failed."
                 exit 1;
